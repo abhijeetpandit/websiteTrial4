@@ -2,29 +2,37 @@
 
 </div>
 <div class="login-form-container">
-        <form>
+        <form #signupForm="ngForm">
             <div class="form-field">
-                <label for="fname">First name</label>
-                <input type="text" name="fname" placeholder="First name...">
+                <label for="fname"><span class="red-asterisk">* </span>First name</label>
+                <input type="text" name="fname" placeholder="First name..." [(ngModel)]="firstName">
+                
             </div>
             <div class="form-field">
                 <label for="lname">Last name</label>
-                <input type="text" name="lname" placeholder="Last name...">
+                <input type="text" name="lname" placeholder="Last name..." [(ngModel)]="lastName">
             </div>
             <div class="form-field">
                 <label for="uname">User name</label>
-                <input type="text" name="uname" placeholder="Your name...">
+                <input type="text" name="uname" placeholder="User name..." [(ngModel)]="userName">
             </div>
             <div class="form-field">
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Your name...">
+                <input type="text" name="email" placeholder="email..." [(ngModel)]="email">
+            </div>
+            <div class="form-field">
+                <label for="phno">Phone no</label>
+                <input type="text" name="phno" placeholder="ph no..." [(ngModel)]="phNo">
             </div>
             <div class="form-field">
                 <label for="password">Password</label>
-                <input type="password" name="password">
+                <input type="password" name="password" [(ngModel)]="password">
             </div>
             <div class="form-field">
-                <button name="Login" class="green-button">Signup</button>
+                <button name="Login" class="green-button" (click)="save()" [disabled]="disableForSave">Signup</button>
             </div>
         </form>
+        {{signupForm.value | json}}
     </div>
+
+    
